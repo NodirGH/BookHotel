@@ -11,11 +11,17 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : ViewModel() {
 
     fun getHotelDetails(){
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val result = homeUseCase.getHotelDetails()
             val check = result
         }
     }
 
+    fun getRoomDetails(){
+        viewModelScope.launch {
+            val result = homeUseCase.getRoomDetails()
+            val check = result
+        }
+    }
 
 }

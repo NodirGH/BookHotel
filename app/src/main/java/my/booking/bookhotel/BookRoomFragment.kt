@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.databinding.FragmentBookRoomBinding
 import my.booking.bookhotel.databinding.FragmentMainBinding
 
+@AndroidEntryPoint
 class BookRoomFragment : Fragment() {
     private lateinit var binding: FragmentBookRoomBinding
 
