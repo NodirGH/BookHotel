@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk ConfigData.compileSdk
+
+    defaultConfig {
+        minSdk ConfigData.minSdk
+        targetSdk ConfigData.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    namespace 'my.booking.bookhotel'
+}
+
+dependencies {
+
+//    implementation project(':toolkit')
+
+    implementation ProjectDependencies.coreKtx
+    implementation ProjectDependencies.appCompat
+
+    implementation ProjectDependencies.hilt
+    kapt ProjectDependencies.hiltKapt
+
+    debugImplementation ProjectDependencies.chucker     //unimportant
+    releaseImplementation ProjectDependencies.chuckerNoOp  //unimportant
+
+    implementation ProjectDependencies.retrofit
+    implementation ProjectDependencies.moshiRetrofit
+    implementation ProjectDependencies.moshiKotlin
+    implementation ProjectDependencies.okhttpLogger
+    implementation ProjectDependencies.okhttp
+    implementation ProjectDependencies.gson
+
+    kapt ProjectDependencies.roomCompiler
+    implementation ProjectDependencies.room
+    implementation ProjectDependencies.roomKtx
+
+    implementation ProjectDependencies.kotlin
+    implementation ProjectDependencies.kotlinCoroutineAndroid
+
+    implementation ProjectDependencies.timber
+    implementation ProjectDependencies.paging
+
+    implementation platform(ProjectDependencies.firebaseBom)    //unimportant
+
+    implementation ProjectDependencies.firebaseMessagingNoVersion   //unimportant
+    implementation ProjectDependencies.kotlinCoroutinePlayServices
+
+    implementation ProjectDependencies.commonsLang
+    implementation ProjectDependencies.commonsCollections
+    implementation ProjectDependencies.commonsIO
+
+    testImplementation TestDependencies.junit
+    androidTestImplementation TestDependencies.junitExt
+    testImplementation TestDependencies.mockWebServer
+    testImplementation TestDependencies.coroutine
+    androidTestImplementation TestDependencies.junitExt
+    androidTestImplementation TestDependencies.espresso
+
+}

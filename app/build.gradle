@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk ConfigData.compileSdk
+
+    defaultConfig {
+
+        applicationId ConfigData.applicationId
+        minSdk ConfigData.minSdk
+        targetSdk ConfigData.targetSdk
+        versionCode ConfigData.versionCode
+        versionName ConfigData.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    sourceSets {
+        file('src/main/res-screens')
+                .listFiles()
+                .each { main.res.srcDirs += it.path }
+
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+    }
+}
+
+dependencies {
+//    implementation project(':toolkit')
+    implementation project(':data')
+    implementation ProjectDependencies.coreKtx
+    implementation ProjectDependencies.appCompat
+    implementation ProjectDependencies.material
+    implementation ProjectDependencies.constraintlayout
+
+    testImplementation TestDependencies.junit
+    androidTestImplementation TestDependencies.junitExt
+    androidTestImplementation TestDependencies.espresso
+
+    implementation ProjectDependencies.hilt
+    kapt ProjectDependencies.hiltKapt
+
+    implementation ProjectDependencies.timber
+    implementation ProjectDependencies.glide
+    implementation ProjectDependencies.glideProccessor
+    implementation ProjectDependencies.glideOkHttpIntegration
+    implementation ProjectDependencies.swiperRefresh
+    implementation ProjectDependencies.shimmerEffect
+
+    implementation ProjectDependencies.lifecycleViewModelKtx
+
+    implementation ProjectDependencies.navigationComponent
+    implementation ProjectDependencies.navigationUiKtx
+    implementation ProjectDependencies.jsoup
+
+}
