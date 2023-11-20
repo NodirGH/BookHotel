@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
         }
 
         binding.btnRequestBooking.setOnClickListener {
-
+            viewModel.booking()
         }
     }
 }

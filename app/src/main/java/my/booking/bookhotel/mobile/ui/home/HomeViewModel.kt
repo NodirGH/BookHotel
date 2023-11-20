@@ -24,4 +24,10 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
         }
     }
 
+    fun booking(){
+        viewModelScope.launch {
+            val result = homeUseCase.booking()
+            val check = result
+        }
+    }
 }

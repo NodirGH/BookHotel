@@ -10,4 +10,5 @@ object BaseUrl{
 object Home {
     const val getHotelDetails = "${V}d144777c-a67f-4e35-867a-cacc3b827473"
     const val getRoomDetails = "${V}8b532701-709e-4194-a41c-1a903af00195"
+    const val booking = "${V}63866c74-d593-432c-af8e-f279d1a8d2ff"
 }

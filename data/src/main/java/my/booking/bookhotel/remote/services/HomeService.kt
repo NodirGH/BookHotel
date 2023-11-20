@@ -1,6 +1,7 @@
 package my.booking.bookhotel.remote.services
 
 import my.booking.bookhotel.remote.Home
+import my.booking.bookhotel.remote.responses.BookingResponse
 import my.booking.bookhotel.remote.responses.HotelDetailsResponse
 import my.booking.bookhotel.remote.responses.RoomDetailsResponse
 import retrofit2.http.GET
@@ -12,4 +13,7 @@ interface HomeService {
 
     @GET(Home.getRoomDetails)
     suspend fun getRoomDetails(): RoomDetailsResponse
+
+    @GET(Home.booking)
+    suspend fun booking(): BookingResponse
 }
