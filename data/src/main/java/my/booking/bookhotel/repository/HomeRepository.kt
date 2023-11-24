@@ -20,7 +20,10 @@ class HomeRepositoryImpl @Inject constructor(private val service: HomeService): 
         return try {
             val result = service.getHotelDetails().mapToHotelDetailsDto()
             result
-        } catch (e: Exception) {
+        } catch (e: java.net.UnknownHostException){
+            return HotelDetailsDto(name = "UnknownHostException")
+        }
+        catch (e: Exception) {
             val error = e
             HotelDetailsDto()
         }

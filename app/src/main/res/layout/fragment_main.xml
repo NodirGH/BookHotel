@@ -9,7 +9,7 @@
         android:id="@+id/shimmerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,12 +146,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/ivCarousel"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/mainFragmentBooksPager"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_210sdp"
-                    android:background="@drawable/bg_light_blue"
-                    />
+                    android:layout_marginTop="12dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -221,7 +226,7 @@
                         android:id="@+id/tvPriceTourAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
                         android:layout_marginVertical="8dp"
                         android:fontFamily="@font/sf_pro_display_bold"
                         android:gravity="bottom"
@@ -246,7 +251,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginVertical="@dimen/_6sdp"
                 android:background="@drawable/bg_white"
                 android:orientation="vertical">
 
@@ -264,13 +269,15 @@
                     android:id="@+id/rvPeculiarities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_12sdp"/>
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"/>
 
                 <TextView
                     android:id="@+id/tvHotelDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
                     android:fontFamily="@font/sf_pro_display"
                     android:maxLines="4"
                     android:textColor="@color/black"
@@ -282,6 +289,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_12sdp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -325,8 +333,8 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
                             android:src="@drawable/ic_next" />
 
                     </LinearLayout>
@@ -379,8 +387,8 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
                             android:src="@drawable/ic_next" />
 
                     </LinearLayout>
@@ -398,7 +406,7 @@
                         android:background="@drawable/bg_light_grey"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
+                        android:paddingHorizontal="@dimen/_12sdp"
                         android:paddingVertical="10dp">
 
                         <ImageView
@@ -433,8 +441,8 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
                             android:src="@drawable/ic_next" />
 
                     </LinearLayout>
@@ -448,9 +456,11 @@
     </ScrollView>
 
     <RelativeLayout
+        android:id="@+id/rlBtnToChooseRoom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_55sdp"
         android:gravity="center"
+        android:visibility="gone"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -458,14 +468,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/llBtnToChooseRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:background="@drawable/bg_blue_button"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -483,4 +491,15 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvUnexpectedError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/UnexpectedError"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sdp"
+        android:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

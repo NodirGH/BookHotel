@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="my.booking.bookhotel">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".mobile.BookHotelApplication"
         android:allowBackup="true"

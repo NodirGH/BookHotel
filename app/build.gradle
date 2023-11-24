@@ -75,7 +75,7 @@ dependencies {
     implementation ProjectDependencies.navigationUiKtx
     implementation ProjectDependencies.jsoup
 //    implementation ProjectDependencies.smartCarousel
-//    implementation ProjectDependencies.carousel
+    implementation ProjectDependencies.carousel
     implementation ProjectDependencies.sdp
     implementation ProjectDependencies.flexbox
 }

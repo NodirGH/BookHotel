@@ -13,43 +13,54 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.databinding.FragmentMainBinding
+import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
 import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
 import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
 import my.booking.bookhotel.mobile.utils.hide
+import my.booking.bookhotel.mobile.utils.setAutoScroll
 import my.booking.bookhotel.mobile.utils.show
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
-   private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
     private val viewModel: HomeViewModel by viewModels()
     private val adapter: PeculiarityAdapter by lazy { PeculiarityAdapter() }
+    private lateinit var bannerAdapter: BannerAdapter
 
-    //    var sampleImages = intArrayOf(
-//        R.drawable.image_1,
-//        R.drawable.image_2,
-//        R.drawable.image_3,
-//    )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
+        bannerAdapter = BannerAdapter()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val imageListener =
-//            ImageListener { position, imageView -> imageView.setImageResource(sampleImages[position]) }
-//        binding.carouselView.pageCount = sampleImages.size
-//        binding.carouselView.setImageListener(imageListener)
+
+        binding.mainFragmentBooksPager.adapter = bannerAdapter
 
         viewModel.getHotelDetails()
 
         viewModel.getHotelDetails.observe(requireActivity(), Observer { hotel ->
+            if (hotel.name == "UnknownHostException") {
+                binding.rlBtnToChooseRoom.hide()
+                binding.scrollView.hide()
+                binding.shimmerFrameLayout.hide()
+                binding.tvUnexpectedError.text = "Сервер недоступен"
+                binding.tvUnexpectedError.show()
+                return@Observer
+            } else if (hotel.name.isEmpty()) {
+                binding.rlBtnToChooseRoom.hide()
+                binding.scrollView.hide()
+                binding.shimmerFrameLayout.hide()
+                binding.tvUnexpectedError.show()
+                return@Observer
+            }
             binding.shimmerFrameLayout.hide()
-            binding.llBtnToChooseRoom.show()
+            binding.rlBtnToChooseRoom.show()
             binding.scrollView.show()
             binding.tvHotelAddress.text = hotel.address
             binding.tvHotelDetails.text = hotel.description
@@ -58,23 +69,18 @@ class MainFragment : Fragment() {
             binding.tvRatingText.text = hotel.ratingName
             binding.tvPriceTourAmount.text = "от ${formatNumberWithCurrency(hotel.minimalPrice)}"
             binding.tvPriceTourInclusive.text = hotel.priceForIt
-//            binding.tvPeculiaritiesOne.text = hotel.peculiarities[0]
-//            binding.tvPeculiaritiesTwo.text = hotel.peculiarities[1]
-//            binding.tvPeculiaritiesThree.text = hotel.peculiarities[2]
-//            binding.tvPeculiaritiesFour.text = hotel.peculiarities[3]
             val layoutManager = FlexboxLayoutManager(context)
             layoutManager.flexDirection = FlexDirection.ROW
             layoutManager.justifyContent = JustifyContent.FLEX_START
             binding.rvPeculiarities.layoutManager = layoutManager
             adapter.submitList(hotel.peculiarities)
             binding.rvPeculiarities.adapter = adapter
+            bannerAdapter.submitList(hotel.imageUrls)
+            binding.mainFragmentBooksPager.setAutoScroll(5000, hotel.imageUrls.size, 1000)
         })
 
-        binding.llBtnToChooseRoom.setOnClickListener {
+        binding.rlBtnToChooseRoom.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToBookRoomFragment())
         }
-
-
-
     }
 }
