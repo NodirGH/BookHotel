@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llBtnToChooseRoom">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
         android:background="@color/main_background"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -120,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="80dp"
+            android:paddingBottom="@dimen/_60sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -135,12 +135,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginVertical="@dimen/_10sdp"
                     android:fontFamily="@font/sf_pro_display"
                     android:gravity="center"
                     android:text="@string/Hotel"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -149,44 +149,42 @@
                 <ImageView
                     android:id="@+id/ivCarousel"
                     android:layout_width="match_parent"
-                    android:layout_height="257dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/background_rounded"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp" />
+                    android:layout_height="@dimen/_210sdp"
+                    android:background="@drawable/bg_light_blue"
+                    />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:background="@drawable/bg_orange"
                     android:orientation="horizontal"
                     android:paddingHorizontal="10dp"
-                    android:paddingVertical="5dp">
+                    android:paddingVertical="3dp">
 
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:src="@drawable/ic_star" />
 
                     <TextView
                         android:id="@+id/tvRatingNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginHorizontal="@dimen/_4sdp"
                         android:fontFamily="@font/sf_pro_display_medium"
                         android:textColor="@color/orange"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_12sdp"
                         tools:text="5" />
 
                     <TextView
                         android:id="@+id/tvRatingText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
                         android:fontFamily="@font/sf_pro_display_medium"
                         android:textColor="@color/orange"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_12sdp"
                         tools:text="Превосходно" />
 
                 </LinearLayout>
@@ -195,11 +193,11 @@
                     android:id="@+id/tvHotelName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginVertical="@dimen/_6sdp"
                     android:fontFamily="@font/sf_pro_display_medium"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16sdp"
                     tools:text="Steigenberger Makadi" />
 
                 <TextView
@@ -207,15 +205,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/sf_pro_display_medium"
                     android:textColor="@color/blue"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_11sdp"
                     tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -227,7 +226,7 @@
                         android:fontFamily="@font/sf_pro_display_bold"
                         android:gravity="bottom"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_22sdp"
                         tools:text="от 134 673 ₽" />
 
                     <TextView
@@ -235,10 +234,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/sf_pro_display"
+                        android:fontFamily="@font/sf_pro_display_regular"
                         android:gravity="center"
                         android:textColor="@color/grey"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12sdp"
                         tools:text="за тур с перелётом" />
 
                 </LinearLayout>
@@ -247,21 +246,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/_6sdp"
                 android:background="@drawable/bg_white"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
                     android:fontFamily="@font/sf_pro_display_medium"
                     android:text="@string/AboutHotel"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_16sdp" />
 
-                <!--            here should be view -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPeculiarities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"/>
 
                 <TextView
                     android:id="@+id/tvHotelDetails"
@@ -271,14 +274,14 @@
                     android:fontFamily="@font/sf_pro_display"
                     android:maxLines="4"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_12sdp"
                     tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -287,12 +290,12 @@
                         android:background="@drawable/bg_light_grey"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
+                        android:paddingHorizontal="@dimen/_12sdp"
                         android:paddingVertical="10dp">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
                             android:src="@drawable/ic_happy" />
 
                         <LinearLayout
@@ -308,7 +311,7 @@
                                 android:fontFamily="@font/sf_pro_display_bold"
                                 android:text="@string/Comfort"
                                 android:textColor="@color/black"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -317,7 +320,7 @@
                                 android:fontFamily="@font/sf_pro_display_medium"
                                 android:text="@string/MostNecessary"
                                 android:textColor="@color/grey"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                         </LinearLayout>
 
@@ -331,9 +334,9 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="50dp"
+                        android:layout_marginStart="@dimen/_38sdp"
                         android:alpha="0.2"
-                        android:background="#828796" />
+                        android:background="@color/grey" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -341,12 +344,12 @@
                         android:background="@drawable/bg_light_grey"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
+                        android:paddingHorizontal="@dimen/_12sdp"
                         android:paddingVertical="10dp">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
                             android:src="@drawable/ic_tick" />
 
                         <LinearLayout
@@ -362,7 +365,7 @@
                                 android:fontFamily="@font/sf_pro_display_bold"
                                 android:text="@string/WhatInclusive"
                                 android:textColor="@color/black"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -371,7 +374,7 @@
                                 android:fontFamily="@font/internal_sf_pro_display_medium"
                                 android:text="@string/MostNecessary"
                                 android:textColor="@color/grey"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                         </LinearLayout>
 
@@ -385,9 +388,9 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="50dp"
+                        android:layout_marginStart="@dimen/_38sdp"
                         android:alpha="0.2"
-                        android:background="#828796" />
+                        android:background="@color/grey" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -399,8 +402,8 @@
                         android:paddingVertical="10dp">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
                             android:src="@drawable/ic_closed" />
 
                         <LinearLayout
@@ -414,18 +417,18 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="12dp"
                                 android:fontFamily="@font/sf_pro_display_bold"
-                                android:text="Что не включено"
+                                android:text="@string/WhatIsNotInclusive"
                                 android:textColor="@color/black"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="12dp"
                                 android:fontFamily="@font/sf_pro_display_medium"
-                                android:text="Самое необходимое"
+                                android:text="@string/MostNecessary"
                                 android:textColor="@color/grey"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                         </LinearLayout>
 
@@ -444,29 +447,40 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/llBtnToChooseRoom"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:background="@drawable/bg_blue_button"
+        android:layout_height="@dimen/_55sdp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/llBtnToChooseRoom"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:paddingVertical="12dp"
-            android:text="@string/ToChoosingRoom"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/bg_blue_button"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:paddingVertical="12dp"
+                android:text="@string/ToChoosingRoom"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,21 +14,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ApplicationModule {
 
-    @Singleton
-    @Provides
-    fun provideSecurityService(
-        application: Application,
-        appPreferences: AppPreference
-    ): SecurityService {
-        return SecurityService(application, appPreferences)
-    }
-
-    @Singleton
-    @Provides
-    fun provideAuthSecurityListener(securityService: SecurityService): JsonParseInterceptor.Listener =
-        object : JsonParseInterceptor.Listener {
-            override fun openHomeWithClearStack() {
-                securityService.openMainActivityWithClearStack()
-            }
-        }
+//    @Singleton
+//    @Provides
+//    fun provideSecurityService(
+//        application: Application,
+//        appPreferences: AppPreference
+//    ): SecurityService {
+//        return SecurityService(application, appPreferences)
+//    }
+//
+//    @Singleton
+//    @Provides
+//    fun provideAuthSecurityListener(securityService: SecurityService): JsonParseInterceptor.Listener =
+//        object : JsonParseInterceptor.Listener {
+//            override fun openHomeWithClearStack() {
+////                securityService.openMainActivityWithClearStack()
+//            }
+//        }
 }

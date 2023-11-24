@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.R
 import my.booking.bookhotel.databinding.FragmentBookingBinding
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
+import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
 import my.booking.bookhotel.mobile.utils.hide
 import my.booking.bookhotel.mobile.utils.show
 
@@ -33,7 +34,7 @@ class BookingFragment : Fragment() {
 
         viewModel.booking()
 
-        viewModel.getBookingDetails.observe(requireActivity(), Observer { booking ->
+        viewModel.getBookingDetails.observe(viewLifecycleOwner, Observer { booking ->
             binding.shimmerFrameLayout.hide()
             binding.scrollView2.show()
             binding.llBtnPay.show()
@@ -48,12 +49,12 @@ class BookingFragment : Fragment() {
             binding.tvHotel.text = booking.hotelName
             binding.tvHotelRoom.text = booking.room
             binding.tvFood.text = booking.nutrition
-            binding.tvTour.text = "${booking.tourPrice} ₽"
-            binding.tvFuelFee.text = "${booking.fuelCharge} ₽"
-            binding.tvServiceFee.text = "${booking.serviceCharge} ₽"
+            binding.tvTour.text = formatNumberWithCurrency(booking.tourPrice)
+            binding.tvFuelFee.text = formatNumberWithCurrency(booking.fuelCharge)
+            binding.tvServiceFee.text = formatNumberWithCurrency(booking.serviceCharge)
             val payment = booking.tourPrice + booking.fuelCharge + booking.serviceCharge
-            binding.tvPayment.text = "$payment ₽"
-            binding.tvBtnPay.text = "${getString(R.string.Pay)} $payment ₽"
+            binding.tvPayment.text = formatNumberWithCurrency(payment)
+            binding.tvBtnPay.text = "${getString(R.string.Pay)} ${formatNumberWithCurrency(payment)}"
         })
 
         binding.llPhoneNumber.setOnClickListener {

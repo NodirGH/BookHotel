@@ -81,8 +81,10 @@ object NetworkModule {
     @Provides
     fun provideJsonMainInterceptor(
         preference: AppPreference,
-        listener: JsonParseInterceptor.Listener
+//        listener: JsonParseInterceptor.Listener
     ): JsonParseInterceptor {
-        return JsonParseInterceptor(preference, listener)
+        return JsonParseInterceptor(preference
+//            , listener
+        )
     }
 }

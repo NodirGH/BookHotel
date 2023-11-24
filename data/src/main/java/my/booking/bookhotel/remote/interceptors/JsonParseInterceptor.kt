@@ -14,12 +14,12 @@ import javax.net.ssl.SSLHandshakeException
 
 class JsonParseInterceptor(
     private val preference: AppPreference,
-    private val securityListener: Listener
+//    private val securityListener: Listener
 ) : Interceptor {
 
-    interface Listener {
-        fun openHomeWithClearStack()
-    }
+//    interface Listener {
+//        fun openHomeWithClearStack()
+//    }
 
     override fun intercept(chain: Interceptor.Chain): Response {
 
@@ -51,9 +51,6 @@ class JsonParseInterceptor(
 
                 when(response.code()){
                     in 500..505 -> throw ServerErrorException(preference.context.getString(R.string.UnexpectedError))
-                    401 -> {
-                        securityListener.openHomeWithClearStack()
-                    }
                     in 400..499 -> {
                         throw BadRequestException(errorMessage = errorMessage)
                     }

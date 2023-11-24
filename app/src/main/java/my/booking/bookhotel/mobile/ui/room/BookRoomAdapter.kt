@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import my.booking.bookhotel.R
 import my.booking.bookhotel.databinding.ItemRoomBinding
 import my.booking.bookhotel.dto.RoomDetailsDto
+import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
 import my.booking.bookhotel.mobile.utils.loadFromUrl
 
 class BookRoomAdapter : RecyclerView.Adapter<BookRoomAdapter.BookRoomViewHolder>() {
@@ -53,7 +54,7 @@ class BookRoomAdapter : RecyclerView.Adapter<BookRoomAdapter.BookRoomViewHolder>
         ) {
             binding.ivCarousel.loadFromUrl(roomDetailsDto.imageUrls[0])
             binding.tvHotelName.text = roomDetailsDto.name
-            binding.tvPriceRoom.text = roomDetailsDto.price.toString()
+            binding.tvPriceRoom.text = formatNumberWithCurrency(roomDetailsDto.price)
             binding.tvPriceInclusive.text = roomDetailsDto.pricePer
             binding.ivCarousel.setImageResource(R.drawable.img_food)
             binding.llBtnChooseRoom.setOnClickListener { listener.onHotelRoomClick(roomDetailsDto) }

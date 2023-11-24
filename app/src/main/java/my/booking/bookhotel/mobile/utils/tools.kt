@@ -1,17 +1,14 @@
 package my.booking.bookhotel.mobile.utils
 
-import android.text.SpannableString
-import android.text.style.RelativeSizeSpan
 import android.view.View
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import my.booking.bookhotel.BuildConfig
 import my.booking.bookhotel.R
 import my.booking.bookhotel.remote.BaseUrl.DEV_URL
 import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
+import java.text.NumberFormat
 import java.util.*
 
 fun ImageView.loadFromUrl(
@@ -39,22 +36,26 @@ fun View.hide(): View {
     return this
 }
 
-fun Long.formatBalance(): SpannableString {
-    val symbols = DecimalFormatSymbols(Locale.getDefault()).apply { groupingSeparator = ' ' }
-        .apply { decimalSeparator = '.' }
-    val decimalFormat = DecimalFormat("#,###.##", symbols)
-    var formatBalance = decimalFormat.format(this)
-    if (formatBalance.substringAfter(".", "").length == 1) {
-        formatBalance += "0"
+fun formatNumberWithCurrency(number: Long): String {
+    val currencyFormat = NumberFormat.getCurrencyInstance(Locale("ru", "RU"))
+
+    if (currencyFormat is DecimalFormat) {
+        currencyFormat.positivePrefix = ""
+        currencyFormat.positiveSuffix = " ₽"
+        currencyFormat.maximumFractionDigits = 0
     }
-    val spannable = SpannableString(formatBalance)
-    if (formatBalance.contains(".")) {
-        spannable.setSpan(
-            RelativeSizeSpan(0.8f),
-            formatBalance.indexOf("."),
-            formatBalance.length,
-            0
-        )
+
+    return currencyFormat.format(number)
+}
+
+fun formatNumberWithCurrency(number: Int): String {
+    val currencyFormat = NumberFormat.getCurrencyInstance(Locale("ru", "RU"))
+
+    if (currencyFormat is DecimalFormat) {
+        currencyFormat.positivePrefix = ""
+        currencyFormat.positiveSuffix = " ₽"
+        currencyFormat.maximumFractionDigits = 0
     }
-    return spannable
+
+    return currencyFormat.format(number)
 }

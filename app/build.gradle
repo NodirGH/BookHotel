@@ -74,6 +74,8 @@ dependencies {
     implementation ProjectDependencies.navigationComponent
     implementation ProjectDependencies.navigationUiKtx
     implementation ProjectDependencies.jsoup
-//    implementation 'com.github.smarteist:autoimageslider:1.4.0'
-//    implementation 'com.synnapps:carouselview:0.1.5'
+//    implementation ProjectDependencies.smartCarousel
+//    implementation ProjectDependencies.carousel
+    implementation ProjectDependencies.sdp
+    implementation ProjectDependencies.flexbox
 }

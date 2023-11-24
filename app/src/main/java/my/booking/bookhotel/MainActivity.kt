@@ -1,7 +1,12 @@
 package my.booking.bookhotel
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.databinding.ActivityMainBinding
 
@@ -14,5 +19,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window: Window = window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = Color.WHITE
+        }
+        changeStatusBarIconColors(true)
+    }
+
+
+    private fun changeStatusBarIconColors(lightIcons: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val decor = window.decorView
+            if (lightIcons) {
+                // Set status bar icons to light mode (dark icons)
+                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                // Set status bar icons to dark mode (light icons)
+                decor.systemUiVisibility = 0
+            }
+        }
     }
 }
