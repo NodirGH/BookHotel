@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_bookRoomFragment_to_bookingFragment"
             app:destination="@id/bookingFragment" />
+        <argument
+            android:name="HotelName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
@@ -39,6 +42,8 @@
         tools:layout="@layout/fragment_booking_ready" >
         <action
             android:id="@+id/action_bookingReadyFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

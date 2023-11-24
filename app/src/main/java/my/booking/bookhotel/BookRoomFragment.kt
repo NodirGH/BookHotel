@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.databinding.FragmentBookRoomBinding
 import my.booking.bookhotel.databinding.FragmentMainBinding
 import my.booking.bookhotel.dto.RoomDetailsDto
+import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
 import my.booking.bookhotel.mobile.ui.room.BookRoomAdapter
 import my.booking.bookhotel.mobile.utils.hide
@@ -27,30 +29,37 @@ class BookRoomFragment : Fragment(), BookRoomAdapter.HotelActionListener {
 
     private lateinit var binding: FragmentBookRoomBinding
     private val viewModel: HomeViewModel by viewModels()
+    private val args : BookRoomFragmentArgs by navArgs()
+    private lateinit var bannerAdapter: BannerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBookRoomBinding.inflate(inflater, container, false)
+        bannerAdapter = BannerAdapter()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvHotelName.text = args.hotelName
+
+
         viewModel.getRoomDetails()
         adapter.setOnActionListener(this)
+        adapter.setBannerAdapter(bannerAdapter)
+
         binding.rvBookRoom.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBookRoom.adapter = adapter
 
-        viewModel.getRoomsDetails.observe(requireActivity(), Observer { room ->
+        viewModel.getRoomsDetails.observe(requireActivity()) { room ->
             binding.shimmerFrameLayout.hide()
             binding.rvBookRoom.show()
             adapter.submitList(room)
-        })
+        }
 
-        binding.tvHotelName.text = "Hotel name"
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }

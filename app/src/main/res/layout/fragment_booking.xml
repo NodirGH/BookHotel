@@ -9,7 +9,7 @@
         android:id="@+id/shimmerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +107,7 @@
         android:background="@color/main_background"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,9 +126,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/ivBack"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="12dp"
+                    android:padding="@dimen/_13sdp"
                     android:rotation="180"
                     android:src="@drawable/ic_next" />
 
@@ -140,7 +141,7 @@
                     android:gravity="center"
                     android:text="@string/Booking"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <ImageView
                     android:layout_width="50dp"
@@ -163,31 +164,30 @@
                     android:background="@drawable/bg_orange"
                     android:orientation="horizontal"
                     android:paddingHorizontal="10dp"
-                    android:paddingVertical="5dp">
+                    android:paddingVertical="3dp">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:src="@drawable/ic_star" />
 
                     <TextView
                         android:id="@+id/tvRatingNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginHorizontal="@dimen/_4sdp"
                         android:fontFamily="@font/sf_pro_display_medium"
                         android:textColor="@color/orange"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_12sdp"
                         tools:text="5" />
 
                     <TextView
                         android:id="@+id/tvRatingText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
                         android:fontFamily="@font/sf_pro_display_medium"
                         android:textColor="@color/orange"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_12sdp"
                         tools:text="Превосходно" />
 
                 </LinearLayout>
@@ -196,20 +196,22 @@
                     android:id="@+id/tvHotelName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginVertical="4dp"
                     android:fontFamily="@font/sf_pro_display_medium"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16sdp"
                     tools:text="Steigenberger Makadi" />
 
                 <TextView
                     android:id="@+id/tvHotelAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginVertical="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:fontFamily="@font/sf_pro_display_medium"
                     android:textColor="@color/blue"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_11sdp"
                     tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
             </LinearLayout>
 
@@ -234,7 +236,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/TicketFrom"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvTicketFrom"
@@ -243,7 +245,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -261,7 +263,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/CountryCity"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvCountyCity"
@@ -270,7 +272,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -288,7 +290,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Date"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvDate"
@@ -297,7 +299,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -315,7 +317,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/NightAmount"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvNightAmount"
@@ -324,7 +326,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -342,7 +344,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Hotel"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvHotel"
@@ -351,7 +353,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -369,7 +371,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Number"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvHotelRoom"
@@ -378,7 +380,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -396,7 +398,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Food"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvFood"
@@ -405,7 +407,7 @@
                         android:layout_weight="3"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
                 </LinearLayout>
             </LinearLayout>
@@ -426,7 +428,7 @@
                     android:fontFamily="@font/sf_pro_display"
                     android:text="@string/UserInfo"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_16sdp" />
 
                 <LinearLayout
                     android:id="@+id/llPhoneNumber"
@@ -434,15 +436,16 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_edit_text"
                     android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:paddingHorizontal="16dp"
-                    android:paddingVertical="4dp">
+                    android:paddingVertical="@dimen/_6sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display"
                         android:text="@string/PhoneNumber"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <EditText
                         android:id="@+id/etPhoneNumber"
@@ -450,7 +453,10 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:background="@drawable/bg_edit_text"
+                        android:hint="@string/EnterPhoneNumber"
+                        android:inputType="phone"
+                        android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
 
@@ -461,21 +467,25 @@
                     android:background="@drawable/bg_edit_text"
                     android:orientation="vertical"
                     android:paddingHorizontal="16dp"
-                    android:paddingVertical="4dp">
+                    android:paddingVertical="@dimen/_6sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display"
                         android:text="@string/Email"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_9sdp" />
 
                     <EditText
+                        android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:background="@drawable/bg_edit_text"
+                        android:hint="@string/EnterEmail"
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
 
@@ -483,6 +493,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="@dimen/_11sdp"
                     android:text="@string/AttentionInfo" />
 
             </LinearLayout>
@@ -506,13 +518,15 @@
                     android:gravity="center_vertical"
                     android:text="Первый турист "
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:background="@drawable/bg_light_blue"
                     android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:rotation="90"
                     android:src="@drawable/ic_next"
                     app:tint="@color/blue" />
@@ -537,7 +551,7 @@
                     android:gravity="center_vertical"
                     android:text="Второй турист"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <ImageView
                     android:layout_width="32dp"
@@ -545,6 +559,8 @@
                     android:background="@drawable/bg_light_blue"
                     android:padding="8dp"
                     android:rotation="90"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:src="@drawable/ic_next"
                     app:tint="@color/blue" />
 
@@ -568,7 +584,7 @@
                     android:gravity="center_vertical"
                     android:text="Добавить туриста"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <ImageView
                     android:layout_width="32dp"
@@ -576,6 +592,8 @@
                     android:background="@drawable/bg_blue"
                     android:padding="5dp"
                     android:src="@drawable/ic_add"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:tint="@color/white" />
 
             </LinearLayout>
@@ -586,14 +604,14 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_white"
                 android:orientation="vertical"
-                android:layout_marginBottom="70dp"
+                android:layout_marginBottom="@dimen/_65sdp"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="@dimen/_9sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -603,7 +621,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Trip"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvTour"
@@ -611,7 +629,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -619,7 +637,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginBottom="@dimen/_9sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -629,7 +647,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/FuelFee"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvFuelFee"
@@ -637,7 +655,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -645,7 +663,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginBottom="@dimen/_9sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -655,7 +673,7 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/ServiceFee"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvServiceFee"
@@ -663,7 +681,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -671,7 +689,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginBottom="@dimen/_9sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -681,15 +699,15 @@
                         android:fontFamily="@font/sf_pro_display_regular"
                         android:text="@string/Payment"
                         android:textColor="@color/grey"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/tvPayment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_display_regular"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:fontFamily="@font/sf_pro_display_bold"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_13sdp"
                         tools:text="Санкт-Петербург" />
 
                 </LinearLayout>
@@ -700,30 +718,41 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/llBtnPay"
+    <RelativeLayout
+        android:id="@+id/rlBtnPay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_blue_button"
+        android:layout_height="@dimen/_55sdp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/tvBtnPay"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:paddingVertical="12dp"
-            android:text="@string/Pay"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/bg_blue_button"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvBtnPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:paddingVertical="12dp"
+                android:text="@string/Pay"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

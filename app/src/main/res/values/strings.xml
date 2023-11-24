@@ -35,4 +35,6 @@
     <string name="Super">Супер!</string>
     <string name="AttentionInfo">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
     <string name="AmountCurrency">%1$s ₽</string>
+    <string name="EnterPhoneNumber">Введите номер телефона</string>
+    <string name="EnterEmail">Введите адрес электронной почты</string>
 </resources>
