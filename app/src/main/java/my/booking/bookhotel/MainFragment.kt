@@ -14,6 +14,7 @@ import com.google.android.flexbox.JustifyContent
 import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.databinding.FragmentMainBinding
 import my.booking.bookhotel.dto.HotelDetailsDto
+import my.booking.bookhotel.mobile.base.BaseFragment
 import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
 import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
@@ -23,24 +24,15 @@ import my.booking.bookhotel.mobile.utils.setAutoScroll
 import my.booking.bookhotel.mobile.utils.show
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
-    private lateinit var binding: FragmentMainBinding
+class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
     private val viewModel: HomeViewModel by viewModels()
     private val adapter: PeculiarityAdapter by lazy { PeculiarityAdapter() }
     private lateinit var bannerAdapter: BannerAdapter
     private var hotelName = ""
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
-        bannerAdapter = BannerAdapter()
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bannerAdapter = BannerAdapter()
 
         binding.mainFragmentHotelsPager.adapter = bannerAdapter
         viewModel.getHotelDetails()

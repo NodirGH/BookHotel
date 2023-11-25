@@ -13,10 +13,10 @@
         <action
             android:id="@+id/action_mainFragment_to_bookRoomFragment"
             app:destination="@id/bookRoomFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/slide_right"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right"/>
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/bookRoomFragment"
@@ -26,10 +26,10 @@
         <action
             android:id="@+id/action_bookRoomFragment_to_bookingFragment"
             app:destination="@id/bookingFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/slide_right"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right"/>
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
         <argument
             android:name="HotelName"
             app:argType="string" />
@@ -42,10 +42,10 @@
         <action
             android:id="@+id/action_bookingFragment_to_bookingReadyFragment"
             app:destination="@id/bookingReadyFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/slide_right"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right"/>
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/bookingReadyFragment"
@@ -57,9 +57,9 @@
             app:destination="@id/mainFragment"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/slide_right"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right"/>
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
 </navigation>

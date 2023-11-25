@@ -8,18 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import my.booking.bookhotel.databinding.FragmentBookingReadyBinding
 import my.booking.bookhotel.mobile.BookingFragmentDirections
+import my.booking.bookhotel.mobile.base.BaseFragment
 
-class BookingReadyFragment : Fragment() {
-
-    private lateinit var binding: FragmentBookingReadyBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentBookingReadyBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class BookingReadyFragment : BaseFragment<FragmentBookingReadyBinding>(FragmentBookingReadyBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,8 +21,6 @@ class BookingReadyFragment : Fragment() {
 
         binding.llBtnSuper.setOnClickListener {
             findNavController().navigate(BookingReadyFragmentDirections.actionBookingReadyFragmentToMainFragment())
-
-
         }
     }
 }

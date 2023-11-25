@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import my.booking.bookhotel.R
 import my.booking.bookhotel.databinding.FragmentBookingBinding
 import my.booking.bookhotel.dto.BookingDto
+import my.booking.bookhotel.mobile.base.BaseFragment
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
 import my.booking.bookhotel.mobile.utils.PhoneNumberFormattingTextWatcher
 import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
@@ -19,17 +20,8 @@ import my.booking.bookhotel.mobile.utils.hide
 import my.booking.bookhotel.mobile.utils.show
 
 @AndroidEntryPoint
-class BookingFragment : Fragment() {
-    private lateinit var binding: FragmentBookingBinding
+class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBinding::inflate) {
     private val viewModel: HomeViewModel by viewModels()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentBookingBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
