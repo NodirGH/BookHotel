@@ -15,6 +15,7 @@ import my.booking.bookhotel.databinding.FragmentBookRoomBinding
 import my.booking.bookhotel.databinding.FragmentMainBinding
 import my.booking.bookhotel.dto.RoomDetailsDto
 import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
+import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
 import my.booking.bookhotel.mobile.ui.room.BookRoomAdapter
 import my.booking.bookhotel.mobile.utils.hide
@@ -31,6 +32,7 @@ class BookRoomFragment : Fragment(), BookRoomAdapter.HotelActionListener {
     private val viewModel: HomeViewModel by viewModels()
     private val args : BookRoomFragmentArgs by navArgs()
     private lateinit var bannerAdapter: BannerAdapter
+    private lateinit var peculiarityAdapter: PeculiarityAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +40,7 @@ class BookRoomFragment : Fragment(), BookRoomAdapter.HotelActionListener {
     ): View {
         binding = FragmentBookRoomBinding.inflate(inflater, container, false)
         bannerAdapter = BannerAdapter()
+        peculiarityAdapter = PeculiarityAdapter()
         return binding.root
     }
 
@@ -50,6 +53,7 @@ class BookRoomFragment : Fragment(), BookRoomAdapter.HotelActionListener {
         viewModel.getRoomDetails()
         adapter.setOnActionListener(this)
         adapter.setBannerAdapter(bannerAdapter)
+        adapter.setPeculiarityAdapter(peculiarityAdapter)
 
         binding.rvBookRoom.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBookRoom.adapter = adapter

@@ -80,6 +80,7 @@ class MainFragment : Fragment() {
         binding.tvPriceTourAmount.text = "от ${formatNumberWithCurrency(hotel.minimalPrice)}"
         binding.tvPriceTourInclusive.text = hotel.priceForIt
 
+        //Peculiarities
         val layoutManager = FlexboxLayoutManager(context)
         layoutManager.flexDirection = FlexDirection.ROW
         layoutManager.justifyContent = JustifyContent.FLEX_START
@@ -87,6 +88,7 @@ class MainFragment : Fragment() {
         adapter.submitList(hotel.peculiarities)
         binding.rvPeculiarities.adapter = adapter
 
+        //carousel view
         bannerAdapter.submitList(hotel.imageUrls)
         binding.mainFragmentHotelsPager.setAutoScroll(5000, hotel.imageUrls.size, 1000)
         hotelName = hotel.name

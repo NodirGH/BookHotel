@@ -10,6 +10,7 @@ import my.booking.bookhotel.R
 import my.booking.bookhotel.databinding.ItemRoomBinding
 import my.booking.bookhotel.dto.RoomDetailsDto
 import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
+import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
 import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
 import my.booking.bookhotel.mobile.utils.loadFromUrl
 import my.booking.bookhotel.mobile.utils.setAutoScroll
@@ -18,6 +19,11 @@ class BookRoomAdapter : RecyclerView.Adapter<BookRoomAdapter.BookRoomViewHolder>
 
     private lateinit var listener: HotelActionListener
     private lateinit var bannerAdapter: BannerAdapter
+    private lateinit var peculiarityAdapter: PeculiarityAdapter
+
+    fun setPeculiarityAdapter(peculiarityAdapter: PeculiarityAdapter){
+        this.peculiarityAdapter = peculiarityAdapter
+    }
 
     fun setBannerAdapter(bannerAdapter: BannerAdapter){
         this.bannerAdapter = bannerAdapter
@@ -68,17 +74,16 @@ class BookRoomAdapter : RecyclerView.Adapter<BookRoomAdapter.BookRoomViewHolder>
             val layoutManager = FlexboxLayoutManager(binding.root.context)
             layoutManager.flexDirection = FlexDirection.ROW
             layoutManager.justifyContent = JustifyContent.FLEX_START
-//            binding.rvPeculiarities.layoutManager = layoutManager
-//            adapter.submitList(hotel.peculiarities)
-//            binding.rvPeculiarities.adapter = adapter
+            binding.rvRoomPeculiarities.layoutManager = layoutManager
+            peculiarityAdapter.submitList(roomDetailsDto.peculiarities)
+            binding.rvRoomPeculiarities.adapter = peculiarityAdapter
 
-//            binding.ivCarousel.loadFromUrl(roomDetailsDto.imageUrls[0])
             binding.tvHotelName.text = roomDetailsDto.name
             binding.tvPriceRoom.text = formatNumberWithCurrency(roomDetailsDto.price)
             binding.tvPriceInclusive.text = roomDetailsDto.pricePer
-//            binding.ivCarousel.setImageResource(R.drawable.img_food)
             binding.llBtnChooseRoom.setOnClickListener { listener.onHotelRoomClick(roomDetailsDto) }
 
+            binding.mainFragmentRoomsPager.adapter = bannerAdapter
             bannerAdapter.submitList(roomDetailsDto.imageUrls)
             binding.mainFragmentRoomsPager.setAutoScroll(5000, roomDetailsDto.imageUrls.size, 1000)
         }
