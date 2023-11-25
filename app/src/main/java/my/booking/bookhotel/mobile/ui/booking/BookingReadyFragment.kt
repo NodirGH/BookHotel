@@ -1,13 +1,9 @@
-package my.booking.bookhotel
+package my.booking.bookhotel.mobile.ui.booking
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import my.booking.bookhotel.databinding.FragmentBookingReadyBinding
-import my.booking.bookhotel.mobile.BookingFragmentDirections
 import my.booking.bookhotel.mobile.base.BaseFragment
 
 class BookingReadyFragment : BaseFragment<FragmentBookingReadyBinding>(FragmentBookingReadyBinding::inflate) {

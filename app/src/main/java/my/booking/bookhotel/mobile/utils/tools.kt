@@ -22,23 +22,6 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
-//fun ImageView.loadFromUrl(
-//    url: String?,
-//    @DrawableRes placeHolder: Int = R.drawable.ic_launcher_background,
-//) {
-//    try {
-//        Glide.with(this)
-//            .load("${DEV_URL}$url")
-//            .centerCrop()
-//            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-//            .placeholder(R.drawable.avatar_placeholder)
-//            .error(placeHolder)
-//            .into(this)
-//    } catch (e: Exception) {
-//        e.printStackTrace()
-//    }
-//}
-
 fun ImageView.loadFromUrl(url: String, placeholderResId: Int? = null) {
     val requestOptions = RequestOptions()
         .placeholder(placeholderResId ?: R.drawable.hotel_placeholder)
@@ -108,10 +91,10 @@ private fun ViewPager2.setCurrentItem(
                 endFakeDrag()
             }
 
-            override fun onAnimationCancel(animation: Animator?) { /* Ignored */
+            override fun onAnimationCancel(animation: Animator?) {
             }
 
-            override fun onAnimationRepeat(animation: Animator?) { /* Ignored */
+            override fun onAnimationRepeat(animation: Animator?) {
             }
         })
         animator.interpolator = interpolator

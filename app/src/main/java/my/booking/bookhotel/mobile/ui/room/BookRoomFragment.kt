@@ -1,9 +1,7 @@
-package my.booking.bookhotel
+package my.booking.bookhotel.mobile.ui.room
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -15,7 +13,6 @@ import my.booking.bookhotel.mobile.base.BaseFragment
 import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
 import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
 import my.booking.bookhotel.mobile.ui.home.HomeViewModel
-import my.booking.bookhotel.mobile.ui.room.BookRoomAdapter
 import my.booking.bookhotel.mobile.utils.hide
 import my.booking.bookhotel.mobile.utils.show
 import javax.inject.Inject

@@ -32,10 +32,8 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val decor = window.decorView
             if (lightIcons) {
-                // Set status bar icons to light mode (dark icons)
                 decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             } else {
-                // Set status bar icons to dark mode (light icons)
                 decor.systemUiVisibility = 0
             }
         }

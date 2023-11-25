@@ -17,28 +17,10 @@ class LiveEvent<T> : MediatorLiveData<T>() {
         super.observe(owner, wrapper)
     }
 
-//    @MainThread
-//    override fun removeObserver(observer: Observer<in T>) {
-//        if (!observers.remove(observer)) {
-//            val iterator = observers.iterator()
-//            while (iterator.hasNext()) {
-//                if (iterator.next().observer == observer) {
-//                    iterator.remove()
-//                    break
-//                }
-//            }
-//        }
-//        super.removeObserver(observer)
-//    }
-
     @MainThread
     override fun setValue(t: T?) {
         observers.forEach { it.newValue() }
         super.setValue(t)
-    }
-
-    public fun call() {
-        postValue(null)
     }
 
     private class ObserverWrapper<T>(val observer: Observer<T>) : Observer<T> {

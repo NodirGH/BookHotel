@@ -36,14 +36,8 @@ object Versions {
     const val commonsLang = "3.9"
     const val commonsCollections = "4.4"
     const val commonsIO = "2.6"
-
-
-
-
     const val chucker = "3.5.2"
     const val firebaseBom = "30.2.0"
-    const val smartCarousel = "1.4.0"
-    const val carousel = "0.1.5"
     const val sdp = "1.0.6"
     const val flexbox = "3.0.0"
 

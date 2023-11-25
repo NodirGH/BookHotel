@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_light_grey"
-    tools:context=".BookRoomFragment">
+    tools:context=".mobile.ui.room.BookRoomFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout3"

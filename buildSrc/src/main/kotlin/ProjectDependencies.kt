@@ -59,17 +59,10 @@ object ProjectDependencies {
     const val commonsIO = "commons-io:commons-io:${Versions.commonsIO}"
     const val kotlinCoroutinePlayServices =
         "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.kotlin_coroutine}"
-
-
-
-
     const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
     const val chuckerNoOp = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
     const val firebaseMessagingNoVersion = "com.google.firebase:firebase-messaging-ktx"
-
-    const val smartCarousel = "com.github.smarteist:autoimageslider:${Versions.smartCarousel}"
-    const val carousel = "com.synnapps:carouselview:${Versions.carousel}"
     const val sdp = "com.intuit.sdp:sdp-android:${Versions.sdp}"
     const val flexbox = "com.google.android.flexbox:flexbox:${Versions.flexbox}"
 

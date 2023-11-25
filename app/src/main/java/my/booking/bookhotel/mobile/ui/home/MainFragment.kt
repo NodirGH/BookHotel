@@ -1,12 +1,8 @@
-package my.booking.bookhotel
+package my.booking.bookhotel.mobile.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -17,7 +13,6 @@ import my.booking.bookhotel.dto.HotelDetailsDto
 import my.booking.bookhotel.mobile.base.BaseFragment
 import my.booking.bookhotel.mobile.ui.adapter.BannerAdapter
 import my.booking.bookhotel.mobile.ui.adapter.PeculiarityAdapter
-import my.booking.bookhotel.mobile.ui.home.HomeViewModel
 import my.booking.bookhotel.mobile.utils.formatNumberWithCurrency
 import my.booking.bookhotel.mobile.utils.hide
 import my.booking.bookhotel.mobile.utils.setAutoScroll
@@ -42,7 +37,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         }
 
         binding.rlBtnToChooseRoom.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToBookRoomFragment(hotelName))
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToBookRoomFragment(
+                    hotelName
+                )
+            )
         }
     }
 

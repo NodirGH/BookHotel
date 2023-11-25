@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-//    implementation project(':toolkit')
     implementation project(':data')
     implementation ProjectDependencies.coreKtx
     implementation ProjectDependencies.appCompat
@@ -74,8 +73,6 @@ dependencies {
     implementation ProjectDependencies.navigationComponent
     implementation ProjectDependencies.navigationUiKtx
     implementation ProjectDependencies.jsoup
-//    implementation ProjectDependencies.smartCarousel
-    implementation ProjectDependencies.carousel
     implementation ProjectDependencies.sdp
     implementation ProjectDependencies.flexbox
 }

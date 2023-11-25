@@ -10,10 +10,15 @@
         <entry key="app/src/main/res-screens/home/drawable/bg_orange.xml" value="0.114" />
         <entry key="app/src/main/res-screens/home/drawable/ic_baseline_star_24.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/background_rounded.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/bg_blue.xml" value="0.1835" />
         <entry key="app/src/main/res/drawable/bg_blue_button.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/bg_light_blue.xml" value="0.1835" />
         <entry key="app/src/main/res/drawable/bg_light_grey.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/bg_white.xml" value="0.114" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1835" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_tick.xml" value="0.1835" />
         <entry key="app/src/main/res/font/sf_pro_display_regular.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.23854166666666668" />
